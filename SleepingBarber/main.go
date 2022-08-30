@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"math/rand"
 	"time"
 
@@ -17,6 +18,7 @@ func main() {
 
 	color.Cyan("The Sleeping Barber Problem")
 	color.Cyan("____________________________")
+	fmt.Println("")
 
 	clientChan := make(chan string , seatingCapacity)
 	doneChan := make(chan bool)
@@ -31,5 +33,10 @@ func main() {
 	}
 
 	color.Green("Shop open for day!!!")
+	fmt.Println("")
+
+	shop.AddBarber("Frank")
+
+	time.Sleep(5 * time.Second)
 
 }
