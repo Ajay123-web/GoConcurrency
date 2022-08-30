@@ -47,38 +47,6 @@ func (shop *BarberShop) AddBarber(barber string) {
 	}()
 }
 
-// func (shop *BarberShop) AddBarber(barber string) {
-// 	shop.TotalBarbers++
-
-// 	go func() {
-// 		isSleeping := false
-// 		color.Yellow("%s goes to the waiting room to check for clients.", barber)
-
-// 		for {
-// 			// if there are no clients, the barber goes to sleep
-// 			if len(shop.ClientsChan) == 0 {
-// 				color.Yellow("There is nothing to do, so %s takes a nap.", barber)
-// 				isSleeping = true
-// 			}
-
-// 			client, shopOpen := <-shop.ClientsChan
-
-// 			if shopOpen {
-// 				if isSleeping {
-// 					color.Yellow("%s wakes %s up.", client, barber)
-// 					isSleeping = false
-// 				}
-// 				// cut hair
-// 				shop.CutHair(barber, client)
-// 			} else {
-// 				// shop is closed, so send the barber home and close this goroutine
-// 				shop.SendBarberHome(barber)
-// 				return
-// 			}
-// 		}
-// 	}()
-// }
-
 func (shop *BarberShop) CutHair(barber , client string) {
 	color.Green("%s is cutting %s's hair" , barber , client)
 	time.Sleep(shop.HaircutTime)
